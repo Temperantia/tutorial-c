@@ -1,0 +1,78 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "variables",
+      "type": "shell",
+      "command": "clang",
+      "args": [
+        "-std=c17",
+        "-obuild/variables",
+        "1_variables.c"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "operators",
+      "type": "shell",
+      "command": "clang",
+      "args": [
+        "-std=c17",
+        "-obuild/operators",
+        "2_operators.c"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "functions",
+      "type": "shell",
+      "command": "clang",
+      "args": [
+        "-std=c17",
+        "-obuild/functions",
+        "3_functions.c",
+        "3_main.c"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "containers",
+      "type": "shell",
+      "command": "clang",
+      "args": [
+        "-std=c17",
+        "-obuild/containers",
+        "4_containers.c"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "allocation",
+      "type": "shell",
+      "command": "clang",
+      "args": [
+        "-std=c17",
+        "-obuild/allocation",
+        "5_allocation.c"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
