@@ -68,4 +68,6 @@ int main() {
 
   book1.id = 3;
   strcpy_s(book1.title, 50, "title");
+
+  return 0;
 }

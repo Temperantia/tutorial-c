@@ -89,11 +89,6 @@ int main(void) {
     ++i;
   }
 
-  const char *a2[2] = {"lol", "ok"};
-  for (int i = 0; i < 2; ++i) {
-    printf("%s\n", a2[i]);
-  }
-
   do {
     --i;
   } while (i > j);
@@ -115,18 +110,20 @@ int main(void) {
   }
 
   for (;;) {
-    // infini
+    // boucle infini
+    break;
   }
 
   switch (i) {
     case 1:
-      printf("Ok");
+      printf("i est égal à 1\n");
       break;
     case 2:
     case 3:
+      printf("i est égal à 2 ou à 3\n");
       break;
     default:
-      printf("ok");
+      printf("i n'est égal à aucun des 'cases'\n");
   }
 
   return 0;

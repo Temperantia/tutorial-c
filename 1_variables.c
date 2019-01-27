@@ -19,94 +19,74 @@
 */
 // Ceci est un commentaire monoligne
 
-#include <stdio.h> // définition de printf
+#include <stdio.h>  // définition de printf
 
 /**
  * TYPES
  */
 
-typedef int newtype;
-enum Console {
-  ps4,
-  xbox,
-  wii
-};
+typedef int NewType;
+typedef enum Color { red, green, blue } Color;
 
-typedef
-enum color { red, green, blue }
-color;
+#define NEWLINE '\n'  // définition d'une constante
 
-typedef enum Direction { up, right, down, left } Direction;
-
-// définition d'une constante
-#define NEWLINE '\n'
-
-// variable globale
-int g = 20;
-
-// automatiquement initialisée à 0
-int h;
-
-// variable globale partagée entre plusieurs fichiers
-extern int n;
-
-// cette variable n'est déclarée qu'une seule fois pour toute utilisation
-static int l = 10;
+int g = 20;         // variable globale
+int h;              // automatiquement initialisée à 0
+extern int n;       // variable globale partagée entre plusieurs fichiers
+static int l = 10;  // cette variable n'est déclarée qu'une seule fois pour
+                    // toute utilisation
 
 int main(void) {
-  char characterToBeInitialized; // déclaration d'un symbole nommé c de type character
-  // valeur de range -127 à 127 disponible
-  char characterToBeDisplayed = 'c'; // définition d'un symbole nommé d ...
+  printf("hello\n");
 
-  characterToBeInitialized = 'e'; // assignation via opérateur = de la valeur de type char dans une variable nommé c
+  char character_to_be_initialized;  // déclaration d'un symbole nommé c de type
+                                     // character
+  // valeur de range -127 à 127 disponible
+  char character_to_be_displayed = 'c';  // définition d'un symbole nommé d ...
+
+  character_to_be_initialized =
+      'e';  // assignation via opérateur = de la valeur de type char dans une
+            // variable nommée c
   // aka initialisation
 
-  printf("J'affiche un caractère %c et un autre %c\n", characterToBeDisplayed);
-
-  printf("hello\n");
+  printf("J'affiche un caractère %c et un autre %c\n",
+         character_to_be_initialized, character_to_be_displayed);
 
   printf("Size of char : %llu octet\n", sizeof(char));
   printf("Size of int : %llu octets\n", sizeof(int));
-  printf("Size of short int : %llu octets\n", sizeof(short int));
-  printf("Size of long int : %llu octets\n", sizeof(long int));
-  printf("Size of float : %llu octets\n", sizeof(float));
-  printf("Size of double : %llu octets\n", sizeof(double));
-  printf("Size of wchar_t : %llu octets\n", sizeof(wchar_t));
+  printf("Size of short int : %llu octets\n",
+         sizeof(short int));  // short est rarement utilisé, privilégier int
+  printf("Size of long int : %llu octets\n",
+         sizeof(long int));  // long est rarement utilisé, privilégier int
+  printf("Size of float : %llu octets\n", sizeof(float));  // nombre décimal
+  printf("Size of double : %llu octets\n",
+         sizeof(double));  // nombre décimal avec 2x plus de précision que float
+  printf("Size of wchar_t : %llu octets\n",
+         sizeof(wchar_t));  // caractère unicode, peu utilisé
 
   int i = 0;
-  newtype j = 0;
+  NewType j = 0;
 
-  enum color color1 = blue;
-  color color2 = green;
-  printf("color2 value is : %d", color2);
-
-  char pressedKey = 'a';
-  Direction currentDirection = -1;
-  if (pressedKey == 'a') {
-    currentDirection = up;
-  } else if (pressedKey == 'b') {
-    currentDirection = down;
-  }
-
-  printf("global value equals %d\n", g);
-
-  // variable locale non initialisée par défaut -> utilisation dangereuse
-  int k;
-  // printf("%d\n", k);  // valeur aléatoire
-  k = 3;  // OK pour utilisation
+  enum Color color1 = blue;
+  Color color2 = green;
+  printf("color2 value is : %d\n", color2);
 
   printf("%c", NEWLINE);
-
+  printf("global value equals %d\n", g);
+  int k;  // variable locale non initialisée par défaut -> utilisation
+          // dangereuse
+  // printf("%d\n", k);     // valeur aléatoire
+  k = 3;                   // OK pour utilisation
   const int CONSTANT = 3;  // cette valeur ne peut en aucun cas être altérée
+  // CONSTANT = 4;          // ne compilera pas
+  unsigned int l = 50000;  // non signé, pas de nombre négatif possible
+  static int m = 5;  // cette variable n'est définie qu'une seule fois pour tout
+                     // appel de fonction
 
-  unsigned int l = 50000;  // se référer aux types de base du C
-
-  // cette variable n'est définie qu'une seule fois pour tout appel de fonction
-  static int m = 5;
-
-  double d = 3.3;
-  int casted = (int)d;  // 3
-
+  float d = 3.3;
+  int casted = (int)d;        // 3
+  int implicitly_casted = d;  // 3 // cast implicite déconseillé
   printf("%d\n", casted);
+
   return 0;
 }

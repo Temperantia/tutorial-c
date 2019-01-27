@@ -38,8 +38,10 @@ int main(void) {
 
   printf("Enter a character : \n");
   int c = getchar();
-  printf("You entered the character %c which corresponds to the value %d.\n",
-  c, c);
+  printf(
+      "You entered the character %c which corresponds to the decimal value "
+      "%d.\n",
+      c, c);
 
   char name[50];
   printf("Enter name :\n");
