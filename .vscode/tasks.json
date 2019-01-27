@@ -73,6 +73,20 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "allum",
+      "type": "shell",
+      "command": "clang",
+      "args": [
+        "-std=c17",
+        "-obuild/allum",
+        "example_allum/src/*.c"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }

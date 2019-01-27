@@ -25,12 +25,20 @@
  * TYPES
  */
 
-typedef int NewType;
-typedef enum Color { red, green, blue } Color;
+typedef int NewType;  // définition d'un type alias
+typedef enum Color {
+  red,
+  green,
+  blue
+} Color;  // définition d'un type d'énumération
 
-#define NEWLINE '\n'  // définition d'une constante
+#define NEWLINE \
+  '\n'  // définition d'une macro, utilisation conseillé par rapport à des
+        // constantes
 
-int g = 20;         // variable globale
+// variables globales, utilisation déconseillé pour risque de collision avec les
+// variables locales
+int g = 20;
 int h;              // automatiquement initialisée à 0
 extern int n;       // variable globale partagée entre plusieurs fichiers
 static int l = 10;  // cette variable n'est déclarée qu'une seule fois pour
@@ -77,15 +85,20 @@ int main(void) {
           // dangereuse
   // printf("%d\n", k);     // valeur aléatoire
   k = 3;                   // OK pour utilisation
-  const int CONSTANT = 3;  // cette valeur ne peut en aucun cas être altérée
-  // CONSTANT = 4;          // ne compilera pas
+  const int CONSTANT = 3;  // cette variable ne peut en aucun cas être altérée
+
+  // CONSTANT = 4;          // ne compilerait pas
   unsigned int l = 50000;  // non signé, pas de nombre négatif possible
   static int m = 5;  // cette variable n'est définie qu'une seule fois pour tout
                      // appel de fonction
 
   float d = 3.3;
   int casted = (int)d;        // 3
-  int implicitly_casted = d;  // 3 // cast implicite déconseillé
+  // int implicitly_casted = d;  // 3 // cast implicite déconseillé
+
+  int n = 120;
+  char c = (char)i;
+  char e = 'x';
   printf("%d\n", casted);
 
   return 0;
